@@ -10,12 +10,12 @@ pipeline{
     }  
 
     stage('Build'){
-      steps{
-        when{
+      when{
           expression{
             BRANCH_NAME == 'master'
           }
         }
+      steps{
         script{   
           echo 'Building Process'     
         }
@@ -23,12 +23,12 @@ pipeline{
     }
 
     stage('Deploy'){
-      steps{
-        when{
+      when{
           expression{
             BRANCH_NAME == 'master'
           }
         }
+      steps{
         script{    
           echo 'Deploying Process'    
         }
